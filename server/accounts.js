@@ -19,6 +19,7 @@ function generateAccounts(balances) {
     privateKeys.forEach(pk => {
         console.log(pk);
     })
+    return accounts;
 }
 
 module.exports = { generateAccounts };
