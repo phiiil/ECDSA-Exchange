@@ -1,3 +1,4 @@
+const accounts = require('./accounts.js');
 const express = require('express');
 const app = express();
 const cors = require('cors');
@@ -14,18 +15,24 @@ const balances = {
   "3": 75,
 }
 
+// ROUTES
+
 app.get('/balance/:address', (req, res) => {
-  const {address} = req.params;
+  const { address } = req.params;
   const balance = balances[address] || 0;
   res.send({ balance });
 });
 
 app.post('/send', (req, res) => {
-  const {sender, recipient, amount} = req.body;
+  const { sender, recipient, amount } = req.body;
   balances[sender] -= amount;
   balances[recipient] = (balances[recipient] || 0) + +amount;
   res.send({ balance: balances[sender] });
 });
+
+// STARTUP
+console.log(`Booting NoFi Bank...`);
+accounts.generateAccounts(balances);
 
 app.listen(port, () => {
   console.log(`Listening on port ${port}!`);
