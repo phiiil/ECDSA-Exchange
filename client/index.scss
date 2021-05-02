@@ -4,7 +4,9 @@ body {
 }
 
 input {
-  padding: 9px 25px;
+  width: 100%;
+  padding: 9px 20px;
+  margin-bottom: 5px;
   border-radius: 5px;
   text-transform: uppercase;
 }
@@ -43,6 +45,7 @@ input {
   border-radius: 5px;
   border: none;
   padding: 9px 25px;
+  margin: 10px;
   font-size: 0.7em;
   letter-spacing: 0.7px;
   background-color: #f58427;
